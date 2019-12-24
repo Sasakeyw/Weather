@@ -1,0 +1,73 @@
+
+
+<div >
+  <p class="title">星座占い</p>
+<mat-grid-list cols="3">
+    <mat-grid-tile layout-align="top top" *ngFor="let horoscopeRow of today; index as i">
+      <mat-card class="card" width="400px" height="100%" >
+        <mat-card-header>
+          <div [ngSwitch]="i">
+            <div mat-card-avatar *ngSwitchCase="0" class="header-image-0"></div>
+            <div mat-card-avatar *ngSwitchCase="1" class="header-image-1"></div>
+            <div mat-card-avatar *ngSwitchCase="2" class="header-image-2"></div>
+            <div mat-card-avatar *ngSwitchCase="3" class="header-image-3"></div>
+            <div mat-card-avatar *ngSwitchCase="4" class="header-image-4"></div>
+            <div mat-card-avatar *ngSwitchCase="5" class="header-image-5"></div>
+            <div mat-card-avatar *ngSwitchCase="6" class="header-image-6"></div>
+            <div mat-card-avatar *ngSwitchCase="7" class="header-image-7"></div>
+            <div mat-card-avatar *ngSwitchCase="8" class="header-image-8"></div>
+            <div mat-card-avatar *ngSwitchCase="9" class="header-image-9"></div>
+            <div mat-card-avatar *ngSwitchCase="10" class="header-image-10"></div>
+            <div mat-card-avatar *ngSwitchCase="11" class="header-image-11"></div>
+          </div>
+          <mat-card-subtitle class="card-subtitle">{{horoscopeRow.sign }}</mat-card-subtitle>
+          <mat-card-subtitle class="card-subtitle">ラッキーカラー:{{horoscopeRow.color}}</mat-card-subtitle>
+          <mat-card-subtitle class="card-subtitle">ラッキーアイテム:{{horoscopeRow.item}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+              <div>
+                <span [ngSwitch]="horoscopeRow.total">
+                  <P *ngSwitchCase="1">総合運：✨</P>
+                  <P *ngSwitchCase="2">総合運：✨✨</P>
+                  <P *ngSwitchCase="3">総合運：✨✨✨</P>
+                  <P *ngSwitchCase="4">総合運：✨✨✨✨</P>
+                  <P *ngSwitchCase="5">総合運：✨✨✨✨✨</P>
+                </span>
+              </div>
+              <div>
+                <span [ngSwitch]="horoscopeRow.money">
+                  <P *ngSwitchCase="1">金　運：💎</P>
+                  <P *ngSwitchCase="2">金　運：💎💎</P>
+                  <P *ngSwitchCase="3">金　運：💎💎💎</P>
+                  <P *ngSwitchCase="4">金　運：💎💎💎💎</P>
+                  <P *ngSwitchCase="5">金　運：💎💎💎💎💎</P>
+                </span>
+              </div>
+              <div>
+                <span [ngSwitch]="horoscopeRow.job">
+                  <P *ngSwitchCase="1">仕事運：💪</P>
+                  <P *ngSwitchCase="2">仕事運：💪💪</P>
+                  <P *ngSwitchCase="3">仕事運：💪💪💪</P>
+                  <P *ngSwitchCase="4">仕事運：💪💪💪💪</P>
+                  <P *ngSwitchCase="5">仕事運：💪💪💪💪💪</P>
+                </span>
+              </div>
+              <div>
+                <span [ngSwitch]="horoscopeRow.love">
+                  <P *ngSwitchCase="1">恋愛運：💛</P>
+                  <P *ngSwitchCase="2">恋愛運：💛💛</P>
+                  <P *ngSwitchCase="3">恋愛運：💛💛💛</P>
+                  <P *ngSwitchCase="4">恋愛運：💛💛💛💛</P>
+                  <P *ngSwitchCase="5">恋愛運：💛💛💛💛💛</P>
+                </span>
+              </div>
+              <div>
+                {{ horoscopeRow.content }}
+              </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

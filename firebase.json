@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/Weather",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

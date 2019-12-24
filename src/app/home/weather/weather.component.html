@@ -1,36 +1,38 @@
-<p>weather works!</p>
-
-<div *ngIf="weatherData">
-    <mat-card class="example-card">
-        <mat-card-title>{{ weatherData.name }}</mat-card-title>
-        <table>
-            <tr>
-                <td>
-                    <img class="iconimage" src={{iconurl}} alt="title" />
-                </td>
-                <td>
-                    <mat-card-title>{{temp }}℃</mat-card-title>
-                </td>
-            </tr>
-        </table>
-        <mat-card-content>
-            <div>
-                Clouds: {{ weatherClouds.all }} %
-            </div>
-            <div>
-                Humidity:{{ weatherMain.humidity }} %
-            </div>
-            <div>
-                Wind: {{ weatherWind.speed }} m/s
-            </div>
-            <div>
-                Pressure: {{ weatherMain.pressure }} hpa
-            </div>
-        </mat-card-content>
-    </mat-card>
+<div class="back-theme">
+    <div class="time">
+        {{ now | async | date:'yyyy年MM月dd日 HH:mm:ss' }}
+    </div>
+    <div *ngIf="weatherData">
+        <mat-card class="card">
+            <mat-card-title>{{ weatherData.name }}</mat-card-title>
+            <table>
+                <tr>
+                    <td>
+                        <img class="iconimage" src={{iconurl}} alt="title" />
+                    </td>
+                    <td>
+                        <mat-card-title>{{temp }}℃</mat-card-title>
+                    </td>
+                </tr>
+            </table>
+            <mat-card-content>
+                <div>
+                    Clouds: {{ weatherClouds.all }} %
+                </div>
+                <div>
+                    Humidity:{{ weatherMain.humidity }} %
+                </div>
+                <div>
+                    Wind: {{ weatherWind.speed }} m/s
+                </div>
+                <div>
+                    Pressure: {{ weatherMain.pressure }} hpa
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <app-horoscope></app-horoscope>
 </div>
-
-
 <!-- <meta  content="0; URL='http://api.openweathermap.org/data/2.5/weather?q=Tokyo&mode=html&APPID=1276bf9adf9eb68a8deff92def890b4a'" /> -->
 
 <!-- <meta http-equiv="refresh" content="0; URL='http://api.openweathermap.org/data/2.5/weather?q=Tokyo&mode=html&APPID=1276bf9adf9eb68a8deff92def890b4a'" /> -->

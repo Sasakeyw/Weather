@@ -6,17 +6,19 @@ import { WeatherComponent } from './weather/weather.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatToolbarModule, MatCardModule,
-  MatButtonToggleModule} from '@angular/material';
+  MatButtonToggleModule, MatGridListModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HoroscopeComponent } from './horoscope/horoscope.component';
+
 
 @NgModule({
-  declarations: [WeatherComponent],
+  declarations: [WeatherComponent, HoroscopeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     HttpClientModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatToolbarModule, MatCardModule,
-    MatButtonToggleModule,
+    MatButtonToggleModule, MatGridListModule,
     FormsModule, ReactiveFormsModule
   ]
 })

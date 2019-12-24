@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { WeatherService } from './weather.service';
-
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent implements OnInit, OnDestroy  {
 
   weatherData;
   weather;
   weatherClouds;
   iconurl;
+
   weatherMain;
   weatherWind;
   temp;
   dateNow;
+  now: Observable<Date>;
+  intervalList = [];
   constructor(private weatherService: WeatherService) {
     this.weatherService.getWeatherAPI().subscribe(response => {
       this.weatherData = response;
@@ -30,13 +33,26 @@ export class WeatherComponent implements OnInit {
       console.log(this.weatherData);
       console.log('this.weatherMain');
       console.log(this.weatherMain);
-      const url = 'http://openweathermap.org/img/w/';
+      const url = 'https://openweathermap.org/img/w/';
       this.iconurl = url + this.weather.icon + '.png';
+      console.log('this.iconurl');
+      console.log(this.iconurl);
       });
   }
 
   ngOnInit() {
-
+    this.now = new Observable((observer) => {
+      this.intervalList.push(setInterval(() => {
+        observer.next(new Date());
+      }, 1000));
+    });
+  }
+  ngOnDestroy() {
+    if (this.intervalList) {
+      this.intervalList.forEach((interval) => {
+        clearInterval(interval);
+      });
+    }
   }
 
   convertTemperetureFtoC(fahrenheit) {
